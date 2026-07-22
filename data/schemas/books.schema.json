@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "trellis://schemas/books.schema.json",
+  "title": "Books",
+  "description": "30 本書清單與進度(PRD §4.1 P6)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "title", "category", "status"],
+    "properties": {
+      "id": { "type": "string", "minLength": 1 },
+      "title": { "type": "string", "minLength": 1 },
+      "author": { "type": ["string", "null"] },
+      "category": {
+        "type": "string",
+        "enum": ["景觀專業", "論文知識", "AI工具", "閒書"]
+      },
+      "status": {
+        "type": "string",
+        "enum": ["未讀", "閱讀中", "已讀"]
+      },
+      "progressNote": { "type": ["string", "null"] },
+      "notePath": {
+        "type": ["string", "null"],
+        "description": "notes/books/<id>.md,一本一檔"
+      },
+      "updatedAt": {
+        "type": ["string", "null"],
+        "format": "date-time",
+        "description": "最近一次更新時間,供「今天」頁最近更新彙整使用"
+      }
+    }
+  }
+}

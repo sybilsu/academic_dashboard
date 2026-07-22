@@ -1,0 +1,26 @@
+{
+  "name": "Trellis — 研究進度管理",
+  "short_name": "Trellis",
+  "description": "支撐 2026 暑假到 2027 年 7 月所有研究與學習目標的個人進度管理 PWA",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#eef1f6",
+  "theme_color": "#2a78d6",
+  "lang": "zh-Hant-TW",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

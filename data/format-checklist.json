@@ -1,0 +1,58 @@
+[
+  {
+    "sectionId": "6.1",
+    "sectionTitle": "總則",
+    "items": [
+      { "id": "6.1.1", "label": "格式內容依東海大學景觀學系碩士班論文撰寫格式規定", "checked": false },
+      { "id": "6.1.2", "label": "編排:縱向橫寫,以 Microsoft Word 打字", "checked": false },
+      { "id": "6.1.3", "label": "紙張:正文 A4;圖表或地圖以此為原則但不以此為限", "checked": false },
+      { "id": "6.1.4", "label": "內文引用與參考文獻格式:「戶外遊憩研究」APA 7;造園景觀學會", "checked": false },
+      { "id": "6.1.5", "label": "內文結構:漏斗狀由大到小;主要架構為 IMRD", "checked": false }
+    ]
+  },
+  {
+    "sectionId": "6.2",
+    "sectionTitle": "版面設定",
+    "items": [
+      { "id": "6.2.1", "label": "邊界:上 2.54 cm、下 2.54 cm、左 3.17 cm、右 2.54 cm", "checked": false },
+      { "id": "6.2.2", "label": "行距:單行", "checked": false },
+      { "id": "6.2.3", "label": "頁碼:阿拉伯數字置於每頁下方正中間,由第一章第一節開始編號", "checked": false }
+    ]
+  },
+  {
+    "sectionId": "6.3",
+    "sectionTitle": "封面與紙張",
+    "items": [
+      { "id": "6.3.1", "label": "封面一律米色萊妮紙 200–250 磅(平裝本)", "checked": false },
+      { "id": "6.3.2", "label": "內頁至少 70 磅白色模造紙印刷", "checked": false },
+      { "id": "6.3.3", "label": "封面中間加東海浮水印", "checked": false }
+    ]
+  },
+  {
+    "sectionId": "6.4",
+    "sectionTitle": "中文封面(段落固定行高 25pt;中文標楷體、英文 Times New Roman)",
+    "items": [
+      { "id": "6.4.1", "label": "「東海大學/景觀學系/碩士論文 + Thesis for the Degree of Master / Department of Landscape Architecture / Tunghai University」:14 級", "checked": false },
+      { "id": "6.4.2", "label": "「指導教授:○○○博士 / Advisor:○○○ Ph.D.」:16 級", "checked": false },
+      { "id": "6.4.3", "label": "中文題目、英文題目:20 級", "checked": false },
+      { "id": "6.4.4", "label": "「研究生:○○○ / Graduate Student:○○○」:16 級", "checked": false },
+      { "id": "6.4.5", "label": "「中華民國○○年○月 + 西元年,月」:14 級", "checked": false }
+    ]
+  },
+  {
+    "sectionId": "6.5",
+    "sectionTitle": "文稿排序",
+    "items": [
+      { "id": "6.5.1", "label": "1. 中文封面", "checked": false },
+      { "id": "6.5.2", "label": "2. 論文指導教授及口試委員之簽名頁", "checked": false },
+      { "id": "6.5.3", "label": "3. 論文中、英文摘要(以不超過一頁為原則)", "checked": false },
+      { "id": "6.5.4", "label": "4. 誌謝辭或序言", "checked": false },
+      { "id": "6.5.5", "label": "5. 目錄、圖次、表次", "checked": false },
+      { "id": "6.5.6", "label": "6. 論文正文(格式依「造園景觀學報」)", "checked": false },
+      { "id": "6.5.7", "label": "7. 參考文獻(格式依「造園景觀學報」)", "checked": false },
+      { "id": "6.5.8", "label": "8. 附錄(含附表、附圖;含每篇引用文獻之原文摘錄)", "checked": false },
+      { "id": "6.5.9", "label": "9. 封底", "checked": false },
+      { "id": "6.5.10", "label": "10. 書背:東海大學/景觀學系碩士(專)班/碩士論文/論文題目/畢業之中華民國年份加括弧如(116)而非學年/研究生:○○○ 撰", "checked": false }
+    ]
+  }
+]

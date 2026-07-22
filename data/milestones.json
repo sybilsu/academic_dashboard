@@ -1,0 +1,107 @@
+{
+  "decisionPoint": "2026/11 前選定實驗 → 收斂為單軌",
+  "converged": false,
+  "convergedTrack": null,
+  "tracks": {
+    "jan2027": {
+      "label": "一月口試軌",
+      "examDate": "2027/1",
+      "nodes": [
+        {
+          "id": "jan-topic-confirmed",
+          "label": "確定實驗題目與方法",
+          "date": "2026/9 前(115 學年開始前)",
+          "status": "pending"
+        },
+        {
+          "id": "jan-proposal-defense",
+          "label": "計畫書口試(proposal)",
+          "date": "2026/10",
+          "status": "pending"
+        },
+        {
+          "id": "jan-experiment",
+          "label": "實驗執行與資料蒐集",
+          "date": null,
+          "dateRange": ["2026/9", "2026/11"],
+          "status": "pending"
+        },
+        {
+          "id": "jan-analysis-writing",
+          "label": "分析與撰寫",
+          "date": null,
+          "dateRange": ["2026/11", "2026/12"],
+          "status": "pending"
+        },
+        {
+          "id": "jan-draft-to-advisor",
+          "label": "初稿交指導教授",
+          "date": "2026/12 上旬",
+          "status": "pending"
+        },
+        {
+          "id": "jan-final-defense",
+          "label": "學位口試",
+          "date": "2027/1",
+          "status": "pending"
+        },
+        {
+          "id": "jan-revision-graduation",
+          "label": "修改+格式檢核+離校",
+          "date": "2027/2",
+          "status": "pending"
+        }
+      ]
+    },
+    "jul2027": {
+      "label": "七月口試軌",
+      "examDate": "2027/7",
+      "nodes": [
+        {
+          "id": "jul-topic-confirmed",
+          "label": "確定實驗題目與方法",
+          "date": "2026/11 前",
+          "status": "pending"
+        },
+        {
+          "id": "jul-proposal-defense",
+          "label": "計畫書口試(proposal)",
+          "date": "2026/12",
+          "status": "pending"
+        },
+        {
+          "id": "jul-experiment",
+          "label": "實驗執行與資料蒐集",
+          "date": null,
+          "dateRange": ["2026/10", "2027/3"],
+          "status": "pending"
+        },
+        {
+          "id": "jul-analysis-writing",
+          "label": "分析與撰寫",
+          "date": null,
+          "dateRange": ["2027/3", "2027/5"],
+          "status": "pending"
+        },
+        {
+          "id": "jul-draft-to-advisor",
+          "label": "初稿交指導教授",
+          "date": "2027/5 上旬",
+          "status": "pending"
+        },
+        {
+          "id": "jul-final-defense",
+          "label": "學位口試",
+          "date": "2027/7",
+          "status": "pending"
+        },
+        {
+          "id": "jul-revision-graduation",
+          "label": "修改+格式檢核+離校",
+          "date": "2027/8",
+          "status": "pending"
+        }
+      ]
+    }
+  }
+}

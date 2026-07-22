@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "trellis://schemas/format-checklist.schema.json",
+  "title": "Format Checklist",
+  "description": "論文格式檢核表(PRD §6),依東海大學景觀學系碩士班論文撰寫格式規定",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["sectionId", "sectionTitle", "items"],
+    "properties": {
+      "sectionId": { "type": "string", "pattern": "^6\\.[1-5]$" },
+      "sectionTitle": { "type": "string", "minLength": 1 },
+      "items": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "label", "checked"],
+          "properties": {
+            "id": { "type": "string", "minLength": 1 },
+            "label": { "type": "string", "minLength": 1 },
+            "checked": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  },
+  "minItems": 5
+}

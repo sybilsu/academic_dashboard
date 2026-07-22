@@ -1,0 +1,49 @@
+[
+  {
+    "id": "B01",
+    "title": "設計中的設計",
+    "author": "原研哉",
+    "category": "閒書",
+    "status": "已讀",
+    "progressNote": "全書讀完,重點摘要見讀書筆記",
+    "notePath": "notes/books/B01.md",
+    "updatedAt": "2026-07-12T21:00:00+08:00"
+  },
+  {
+    "id": "B02",
+    "title": "如何寫一篇好論文",
+    "author": null,
+    "category": "論文知識",
+    "status": "閱讀中",
+    "progressNote": "讀到第四章 IMRD 結構",
+    "notePath": "notes/books/B02.md",
+    "updatedAt": "2026-07-20T22:15:00+08:00"
+  },
+  {
+    "id": "B03",
+    "title": "景觀生態學原理",
+    "author": null,
+    "category": "景觀專業",
+    "status": "閱讀中",
+    "progressNote": "讀到第二章",
+    "notePath": "notes/books/B03.md"
+  },
+  {
+    "id": "B04",
+    "title": "Claude Code 實戰",
+    "author": null,
+    "category": "AI工具",
+    "status": "未讀",
+    "progressNote": null,
+    "notePath": null
+  },
+  {
+    "id": "B05",
+    "title": "戶外遊憩研究方法",
+    "author": null,
+    "category": "景觀專業",
+    "status": "未讀",
+    "progressNote": null,
+    "notePath": null
+  }
+]

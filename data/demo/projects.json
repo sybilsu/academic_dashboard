@@ -1,0 +1,75 @@
+[
+  {
+    "id": "P1",
+    "name": "AI 比賽:另一個 web app prototype 整理修改+參賽",
+    "deadline": "2026/7/31",
+    "deadlineDate": "2026-07-31",
+    "note": "最急",
+    "progress": 65,
+    "status": "in_progress",
+    "linkedMilestoneTrack": null,
+    "updatedAt": "2026-07-21T18:00:00+08:00"
+  },
+  {
+    "id": "P2",
+    "name": "碩士論文",
+    "deadline": "2027/1 或 2027/7 口試",
+    "deadlineDate": null,
+    "note": "雙軌,見 milestones.json;研討會海報報名截止 2026/7/31",
+    "progress": 20,
+    "status": "in_progress",
+    "linkedMilestoneTrack": "dual"
+  },
+  {
+    "id": "P3",
+    "name": "工具學習:測色儀、校色板、單眼相機",
+    "deadline": "2026/7/31",
+    "deadlineDate": "2026-07-31",
+    "note": "支援 P2、P4",
+    "progress": 40,
+    "status": "behind",
+    "linkedMilestoneTrack": null,
+    "updatedAt": "2026-07-19T20:30:00+08:00"
+  },
+  {
+    "id": "P4",
+    "name": "原生植物計畫:確定提供之文獻/紀錄/實驗",
+    "deadline": "2026/9(115 學年前)",
+    "deadlineDate": "2026-09-01",
+    "note": "與 P2 界線需釐清著作權/引用風險",
+    "progress": 10,
+    "status": "not_started",
+    "linkedMilestoneTrack": null
+  },
+  {
+    "id": "P5",
+    "name": "線上倫理課程",
+    "deadline": "2026 暑假內",
+    "deadlineDate": "2026-08-31",
+    "note": "P2 前置必要條件",
+    "progress": 100,
+    "status": "done",
+    "linkedMilestoneTrack": null,
+    "updatedAt": "2026-07-15T20:00:00+08:00"
+  },
+  {
+    "id": "P6",
+    "name": "讀書 30 本(景觀專業/論文知識/AI 工具/閒書)",
+    "deadline": "2026 暑假",
+    "deadlineDate": "2026-08-31",
+    "note": "books.json 逐本追蹤",
+    "progress": 17,
+    "status": "in_progress",
+    "linkedMilestoneTrack": null
+  },
+  {
+    "id": "P7",
+    "name": "日文 N1",
+    "deadline": "2026/12(12 月 JLPT)",
+    "deadlineDate": "2026-12-06",
+    "note": "暑假起備考",
+    "progress": 30,
+    "status": "in_progress",
+    "linkedMilestoneTrack": null
+  }
+]

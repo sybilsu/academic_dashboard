@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "trellis://schemas/tasks.schema.json",
+  "title": "Tasks",
+  "description": "所有任務(由 inbox 解析後 Claude Code 寫入)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "projectId", "title", "status", "createdAt"],
+    "properties": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "projectId": {
+        "type": "string",
+        "pattern": "^P[1-7]$"
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": ["todo", "in_progress", "done"]
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": ["string", "null"],
+        "format": "date-time"
+      },
+      "dueDate": {
+        "type": ["string", "null"],
+        "format": "date"
+      },
+      "source": {
+        "type": ["string", "null"],
+        "description": "原始 inbox 輸入行,便於追溯"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "trellis",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Trellis — 研究進度管理 PWA(見 PRD.md)",
+  "scripts": {
+    "validate": "node scripts/validate-schemas.js"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

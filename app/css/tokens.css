@@ -1,0 +1,139 @@
+:root {
+  color-scheme: light dark;
+
+  --bg-0: #eef1f6;
+  --bg-1: #e4e9f2;
+  --text-0: #0b0b0b;
+  --text-1: #52514e;
+  --text-2: #898781;
+
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-strong: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --glass-shadow: rgba(30, 34, 48, 0.12);
+  --blur: 20px;
+
+  /* categorical slot 1/2 (dataviz skill reference palette, validated) */
+  --accent: #2a78d6;
+  --accent-ink: #ffffff;
+  --track-jan: #2a78d6;
+  --track-jul: #eb6834;
+
+  /* status palette (fixed, mode-invariant per dataviz skill) */
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+  --status-muted: #898781;
+
+  --status-not_started: var(--status-muted);
+  --status-in_progress: var(--accent);
+  --status-behind: var(--status-critical);
+  --status-done: var(--status-good);
+
+  /* literature pipeline (ordinal ramp, single hue = blue) */
+  --lit-待讀: #86b6ef;
+  --lit-已寫摘要: #5598e7;
+  --lit-已詳讀: #2a78d6;
+  --lit-已引用: #1c5cab;
+
+  --check-ok: var(--status-good);
+  --check-missing_appendix: var(--status-warning);
+  --check-mismatch: var(--status-critical);
+  --check-not_applicable: var(--status-muted);
+
+  --radius-lg: 26px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang TC",
+    "Noto Sans TC", system-ui, sans-serif;
+
+  --nav-h: 84px;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-0: #0d0d0d;
+    --bg-1: #14161d;
+    --text-0: #ffffff;
+    --text-1: #c3c2b7;
+    --text-2: #898781;
+
+    --glass-bg: rgba(30, 32, 42, 0.55);
+    --glass-bg-strong: rgba(30, 32, 42, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.14);
+    --glass-highlight: rgba(255, 255, 255, 0.18);
+    --glass-shadow: rgba(0, 0, 0, 0.45);
+
+    --accent: #3987e5;
+    --track-jan: #3987e5;
+    --track-jul: #d95926;
+
+    --status-in_progress: var(--accent);
+
+    --lit-待讀: #184f95;
+    --lit-已寫摘要: #1c5cab;
+    --lit-已詳讀: #256abf;
+    --lit-已引用: #3987e5;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg-0: #0d0d0d;
+  --bg-1: #14161d;
+  --text-0: #ffffff;
+  --text-1: #c3c2b7;
+  --text-2: #898781;
+
+  --glass-bg: rgba(30, 32, 42, 0.55);
+  --glass-bg-strong: rgba(30, 32, 42, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-highlight: rgba(255, 255, 255, 0.18);
+  --glass-shadow: rgba(0, 0, 0, 0.45);
+
+  --accent: #3987e5;
+  --track-jan: #3987e5;
+  --track-jul: #d95926;
+
+  --status-in_progress: var(--accent);
+
+  --lit-待讀: #184f95;
+  --lit-已寫摘要: #1c5cab;
+  --lit-已詳讀: #256abf;
+  --lit-已引用: #3987e5;
+}
+
+:root[data-theme="light"] {
+  --bg-0: #eef1f6;
+  --bg-1: #e4e9f2;
+  --text-0: #0b0b0b;
+  --text-1: #52514e;
+  --text-2: #898781;
+
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-strong: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --glass-shadow: rgba(30, 34, 48, 0.12);
+
+  --accent: #2a78d6;
+  --track-jan: #2a78d6;
+  --track-jul: #eb6834;
+
+  --status-in_progress: var(--accent);
+
+  --lit-待讀: #86b6ef;
+  --lit-已寫摘要: #5598e7;
+  --lit-已詳讀: #2a78d6;
+  --lit-已引用: #1c5cab;
+}

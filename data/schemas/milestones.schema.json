@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "trellis://schemas/milestones.schema.json",
+  "title": "Milestones",
+  "description": "口試雙軌看板(PRD §4.2)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decisionPoint", "converged", "convergedTrack", "tracks"],
+  "properties": {
+    "decisionPoint": {
+      "type": "string",
+      "description": "決策點:選定實驗 → 收斂為單軌的期限"
+    },
+    "converged": {
+      "type": "boolean"
+    },
+    "convergedTrack": {
+      "type": ["string", "null"],
+      "enum": ["jan2027", "jul2027", null]
+    },
+    "tracks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["jan2027", "jul2027"],
+      "properties": {
+        "jan2027": { "$ref": "#/$defs/track" },
+        "jul2027": { "$ref": "#/$defs/track" }
+      }
+    }
+  },
+  "$defs": {
+    "track": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "examDate", "nodes"],
+      "properties": {
+        "label": { "type": "string" },
+        "examDate": { "type": "string" },
+        "nodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "label", "status"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "label": { "type": "string", "minLength": 1 },
+              "date": { "type": ["string", "null"] },
+              "dateRange": {
+                "type": ["array", "null"],
+                "items": { "type": "string" },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "status": {
+                "type": "string",
+                "enum": ["pending", "in_progress", "done", "behind"]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

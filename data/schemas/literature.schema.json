@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "trellis://schemas/literature.schema.json",
+  "title": "Literature Index",
+  "description": "文獻清單索引狀態機(PRD §5.1),內容在 notes/literature/<citekey>.md",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["citekey", "title", "status", "addedDate"],
+    "properties": {
+      "citekey": {
+        "type": "string",
+        "minLength": 1,
+        "description": "與 Zotero citekey 對齊"
+      },
+      "title": { "type": "string", "minLength": 1 },
+      "authors": { "type": ["string", "null"] },
+      "year": { "type": ["integer", "null"] },
+      "status": {
+        "type": "string",
+        "enum": ["待讀", "已寫摘要", "已詳讀", "已引用"]
+      },
+      "addedDate": { "type": "string", "format": "date" },
+      "updatedDate": { "type": ["string", "null"], "format": "date" },
+      "notePath": {
+        "type": ["string", "null"],
+        "description": "notes/literature/<citekey>.md"
+      },
+      "appendixQuotePath": {
+        "type": ["string", "null"],
+        "description": "notes/appendix-quotes/<citekey>.md,僅「已引用」須有值"
+      },
+      "citedInSection": {
+        "type": ["string", "null"],
+        "description": "打算/已在論文哪一節引用"
+      },
+      "consistencyCheck": {
+        "type": "string",
+        "enum": ["ok", "missing_appendix", "mismatch", "not_applicable"],
+        "default": "not_applicable"
+      }
+    }
+  }
+}

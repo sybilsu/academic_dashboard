@@ -1,0 +1,54 @@
+[
+  {
+    "citekey": "Chen2024",
+    "title": "都市原生植物復育之社會參與模式研究",
+    "authors": "Chen, Y.",
+    "year": 2024,
+    "status": "已引用",
+    "addedDate": "2026-07-05",
+    "updatedDate": "2026-07-18",
+    "notePath": "notes/literature/Chen2024.md",
+    "appendixQuotePath": "notes/appendix-quotes/Chen2024.md",
+    "citedInSection": "第二章 文獻回顧",
+    "consistencyCheck": "ok"
+  },
+  {
+    "citekey": "Wang2023",
+    "title": "戶外遊憩體驗品質量表信效度檢驗",
+    "authors": "Wang, T.",
+    "year": 2023,
+    "status": "已詳讀",
+    "addedDate": "2026-07-10",
+    "updatedDate": "2026-07-16",
+    "notePath": "notes/literature/Wang2023.md",
+    "appendixQuotePath": null,
+    "citedInSection": "第三章 研究方法",
+    "consistencyCheck": "not_applicable"
+  },
+  {
+    "citekey": "Lin2022",
+    "title": "校園景觀教育推廣成效評估",
+    "authors": "Lin, H.",
+    "year": 2022,
+    "status": "已寫摘要",
+    "addedDate": "2026-07-15",
+    "updatedDate": null,
+    "notePath": "notes/literature/Lin2022.md",
+    "appendixQuotePath": null,
+    "citedInSection": null,
+    "consistencyCheck": "not_applicable"
+  },
+  {
+    "citekey": "Sato2021",
+    "title": "Native Plant Landscape Restoration in Urban Parks",
+    "authors": "Sato, K.",
+    "year": 2021,
+    "status": "待讀",
+    "addedDate": "2026-07-20",
+    "updatedDate": null,
+    "notePath": null,
+    "appendixQuotePath": null,
+    "citedInSection": null,
+    "consistencyCheck": "not_applicable"
+  }
+]
