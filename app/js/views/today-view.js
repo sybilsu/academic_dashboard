@@ -120,18 +120,23 @@ export class TodayView extends HTMLElement {
       </glass-card>
 
       <div class="section-title">專案進度</div>
-      <glass-card class="card">
-        <div class="rings-grid">
-          ${data.projects
-            .map(
-              (p) => `<div class="ring-tile">
-                <progress-ring value="${p.progress}" status="${p.status}" size="64" show-value></progress-ring>
-                <span class="ring-label">${p.id} · ${STATUS_LABEL[p.status]}</span>
-              </div>`
-            )
-            .join("")}
-        </div>
-      </glass-card>
+      <div class="project-list">
+        ${data.projects
+          .map(
+            (p) => `<glass-card class="card project-row">
+              <progress-ring value="${p.progress}" status="${p.status}" size="52" show-value></progress-ring>
+              <div class="project-row-info">
+                <div class="project-row-name">${p.name}</div>
+                <div class="project-row-meta">
+                  <span class="badge badge-${p.status}">${p.id} · ${STATUS_LABEL[p.status]}</span>
+                  <span class="card-meta">期限:${p.deadline}</span>
+                </div>
+                ${p.note ? `<div class="card-meta">${p.note}</div>` : ""}
+              </div>
+            </glass-card>`
+          )
+          .join("")}
+      </div>
 
       <div class="quick-input-bar glass">
         <input type="text" id="quick-input" placeholder="輸入一句進度…例如「倫理課程上完第3章」" />

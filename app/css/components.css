@@ -328,25 +328,34 @@ demo-badge {
   flex: none;
 }
 
-/* ---------- progress rings grid ---------- */
-.rings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-  gap: var(--space-3);
-}
-.ring-tile {
+/* ---------- project list (today view) ---------- */
+.project-list {
   display: flex;
   flex-direction: column;
+  gap: var(--space-3);
+}
+.project-row {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-4);
+}
+.project-row-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.project-row-name {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.project-row-meta {
+  display: flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-3) var(--space-2);
-  text-align: center;
-}
-.ring-tile .ring-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-1);
-  line-height: 1.3;
+  flex-wrap: wrap;
 }
 
 /* ---------- task list ---------- */
