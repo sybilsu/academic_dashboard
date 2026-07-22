@@ -4,7 +4,10 @@
   "version": "0.1.0",
   "description": "Trellis — 研究進度管理 PWA(見 PRD.md)",
   "scripts": {
-    "validate": "node scripts/validate-schemas.js"
+    "validate": "node scripts/validate-schemas.js",
+    "check:literature": "node scripts/check-literature.js",
+    "check:checklist": "node scripts/checklist-status.js",
+    "check": "npm run validate && npm run check:literature && npm run check:checklist"
   },
   "devDependencies": {
     "ajv": "^8.17.1",

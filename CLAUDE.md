@@ -10,20 +10,24 @@
 
 使用者在筆電對 Claude Code 說「更新進度」或直接鍵入新進度時,依序執行:
 
+0. **同步**:先 `git pull`。手機端(見 M3)可能已經透過 GitHub API 直接 commit 過
+   `inbox/inbox.md` 或 `data/format-checklist.json`,桌面端要先拉最新的才不會讀到過期
+   內容、或覆蓋掉手機端的更新。
 1. **收件**:讀 `inbox/inbox.md` 全部未處理行。
 2. **解析**:判斷每行屬於哪個專案(`data/projects.json`)/任務(`data/tasks.json`)/
    文獻(`data/literature.json`)/書(`data/books.json`),更新對應 JSON
    (勾完成、寫進度百分比、補時間戳)。
-3. **建檔**:新文獻 → 依 `PRD.md` §5.2 模板在 `notes/literature/<citekey>.md` 建檔;
+3. **建檔**:新文獻 → 執行 `node scripts/new-literature-note.js <citekey> "<title>"`
+   依 `PRD.md` §5.2 模板在 `notes/literature/<citekey>.md` 建檔;
    新引用 → 提醒補 `notes/appendix-quotes/<citekey>.md`。
-4. **重算時程**:依完成狀況更新 `data/milestones.json` 雙軌看板的剩餘天數與落後警示;
-   落後項目列入「今天」頁置頂。
-5. **檢查**:
-   - 執行 §5.3 引用一致性檢查(論文引用清單 vs 附錄摘錄一一對應、無遺漏;
-     摘錄原文與「引用意圖」是否一致),結果寫回 `literature.json` 的
-     `consistencyCheck` 欄位。
-   - 統計 `format-checklist.json` 未完成項。
-   - 執行 `npm run validate`,確保所有 JSON 仍符合 schema。
+4. **重算時程**:依完成狀況更新 `data/milestones.json` 雙軌看板的落後警示(剩餘天數由
+   PWA 時間軸頁即時計算,不存進 JSON);落後項目列入「今天」頁置頂。
+5. **檢查**:執行 `npm run check`,一次涵蓋:
+   - `scripts/validate-schemas.js`:所有 JSON 仍符合 schema。
+   - `scripts/check-literature.js`:§5.3 引用一致性檢查(已引用文獻是否都有附錄摘錄
+     檔案),結果寫回 `literature.json` 的 `consistencyCheck` 欄位。摘錄原文與「引用
+     意圖」是否語意一致,腳本判斷不了,人工複核。
+   - `scripts/checklist-status.js`:統計 `format-checklist.json` 未完成項。
 6. **清空 inbox、commit、push** → GitHub Pages 自動部署 → 手機重新整理即見最新狀態。
 
 ## Commit message 慣例
