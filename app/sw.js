@@ -1,4 +1,4 @@
-const CACHE_NAME = "trellis-shell-v1";
+const CACHE_NAME = "trellis-shell-v2";
 const SHELL_FILES = [
   "./index.html",
   "./manifest.webmanifest",
@@ -10,6 +10,7 @@ const SHELL_FILES = [
   "./js/state.js",
   "./js/data.js",
   "./js/toast.js",
+  "./js/github.js",
   "./js/components/glass-card.js",
   "./js/components/progress-ring.js",
   "./js/components/nav-bar.js",

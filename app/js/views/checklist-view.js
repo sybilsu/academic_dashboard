@@ -1,5 +1,7 @@
 import { loadAll } from "../data.js";
 import { state } from "../state.js";
+import { syncChecklistOverrides } from "../github.js";
+import { showToast } from "../toast.js";
 
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({
@@ -81,7 +83,11 @@ export class ChecklistView extends HTMLElement {
     this.innerHTML = `
       <h1 class="page-title">檢核</h1>
       <p class="page-subtitle">論文格式檢核表 · 完成率 ${overallPct}%(${totalChecked}/${totalCount})</p>
-      <p class="card-meta">勾選僅存於本機,尚未同步回 repo(需完成 M3/M4 才會真正寫回 format-checklist.json)</p>
+      <p class="card-meta">${
+        state.getPat() && !state.getDemoMode()
+          ? "勾選會直接同步回 repo 的 format-checklist.json"
+          : "勾選僅存於本機(去設定頁設定 PAT 才會真正同步回 format-checklist.json)"
+      }</p>
 
       <div class="card-row">
         <button type="button" class="btn btn-ghost" id="toggle-hide-checked">
@@ -102,9 +108,22 @@ export class ChecklistView extends HTMLElement {
       this.renderContent();
     });
     this.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
-      cb.addEventListener("change", () => {
+      cb.addEventListener("change", async () => {
         state.setChecklistOverride(cb.dataset.id, cb.checked);
         this.renderContent();
+
+        if (state.getDemoMode()) {
+          showToast("Demo 模式不會同步到 repo");
+          return;
+        }
+        if (!state.getPat()) return;
+
+        try {
+          const { synced } = await syncChecklistOverrides({ silent: false });
+          if (synced) showToast("已同步到 repo 的 format-checklist.json");
+        } catch (err) {
+          showToast(`同步失敗,已留在本機:${err.message}`);
+        }
       });
     });
   }

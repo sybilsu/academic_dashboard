@@ -10,6 +10,8 @@ import "./views/checklist-view.js";
 import "./views/settings-view.js";
 
 import { initRouter } from "./router.js";
+import { state } from "./state.js";
+import { syncAll } from "./github.js";
 
 const root = document.getElementById("view-root");
 const views = {
@@ -22,7 +24,19 @@ const views = {
 
 for (const el of Object.values(views)) root.appendChild(el);
 
-initRouter(views);
+const router = initRouter(views);
+
+function backgroundSync() {
+  if (!state.getPat() || state.getDemoMode()) return;
+  syncAll({ silent: true })
+    .then(({ inbox, checklist }) => {
+      if (inbox.synced || checklist.synced) router.refresh();
+    })
+    .catch((err) => console.warn("background sync failed", err));
+}
+
+window.addEventListener("load", backgroundSync);
+window.addEventListener("online", backgroundSync);
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

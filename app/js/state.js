@@ -68,6 +68,13 @@ export const state = {
     localStorage.removeItem(KEYS.pendingInboxLines);
     emit("trellis:pending-inbox-changed", { lines: [] });
   },
+  removePendingInboxLines(synced) {
+    const syncedTs = new Set(synced.map((l) => l.ts));
+    const remaining = state.getPendingInboxLines().filter((l) => !syncedTs.has(l.ts));
+    writeJSON(KEYS.pendingInboxLines, remaining);
+    emit("trellis:pending-inbox-changed", { lines: remaining });
+    return remaining;
+  },
 
   getTheme() {
     return localStorage.getItem(KEYS.theme) || "auto";

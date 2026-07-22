@@ -1,6 +1,7 @@
 import { loadAll, recentActivity } from "../data.js";
 import { state } from "../state.js";
 import { showToast } from "../toast.js";
+import { syncPendingInbox } from "../github.js";
 
 const STATUS_LABEL = {
   not_started: "未開始",
@@ -150,12 +151,27 @@ export class TodayView extends HTMLElement {
     const send = this.querySelector("#quick-send");
     if (!input || !send) return;
 
-    const submit = () => {
+    const submit = async () => {
       const text = input.value.trim();
       if (!text) return;
       state.addPendingInboxLine(text);
       input.value = "";
-      showToast("已記錄在本機,尚未同步到 repo(需先在設定頁完成 M3 PAT 設定)");
+
+      if (state.getDemoMode()) {
+        showToast("Demo 模式不會同步到 repo");
+        return;
+      }
+      if (!state.getPat()) {
+        showToast("已記錄在本機,尚未同步到 repo(去設定頁設定 PAT 才能真正寫回)");
+        return;
+      }
+
+      try {
+        const { synced } = await syncPendingInbox({ silent: false });
+        showToast(synced ? "已同步到 repo 的 inbox.md" : "已記錄在本機,待下次同步");
+      } catch (err) {
+        showToast(`同步失敗,已留在本機:${err.message}`);
+      }
     };
 
     send.addEventListener("click", submit);

@@ -1,6 +1,7 @@
 import { loadAll, invalidate } from "../data.js";
 import { state } from "../state.js";
 import { showToast } from "../toast.js";
+import { testConnection, syncAll } from "../github.js";
 
 function fmtDateTime(iso) {
   const d = new Date(iso);
@@ -53,17 +54,21 @@ export class SettingsView extends HTMLElement {
 
         <glass-card class="card">
           <div class="card-title">GitHub Personal Access Token</div>
-          <div class="card-sub">尚未接上寫入功能(規劃於 M3):手機/桌面直接 commit 進度到 repo。這裡先讓你預先儲存,之後 M3 完成即可直接使用。</div>
+          <div class="card-sub">手機/桌面直接用這個 token 寫回 repo(inbox.md、檢核表)。只授權此 repo 的
+            Contents 讀寫,存在這台裝置的瀏覽器裡——只在自己信任的裝置上設定。</div>
           <div class="field">
             <label for="pat-input">Fine-grained PAT(只授權此 repo 的 Contents 讀寫)</label>
             <input type="password" id="pat-input" class="text-input" placeholder="github_pat_…" value="${pat}" />
           </div>
-          <button type="button" class="btn btn-primary" id="pat-save" style="align-self: flex-start;">儲存</button>
+          <div class="card-row" style="gap: var(--space-2); flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary" id="pat-save">儲存</button>
+            <button type="button" class="btn btn-ghost" id="pat-test">測試連線</button>
+          </div>
         </glass-card>
 
         <glass-card class="card">
           <div class="card-title">本機待同步輸入</div>
-          <div class="card-sub">「今天」頁快速輸入的內容,目前只存在這台裝置的瀏覽器,尚未寫回 inbox.md</div>
+          <div class="card-sub">「今天」頁快速輸入、檢核頁勾選,若當下離線或還沒設定 PAT 會先留在這裡</div>
           ${
             pending.length
               ? `<div class="pending-list">
@@ -73,7 +78,10 @@ export class SettingsView extends HTMLElement {
                     )
                     .join("")}
                 </div>
-                <button type="button" class="btn btn-ghost" id="clear-pending" style="align-self: flex-start;">清除本機紀錄</button>`
+                <div class="card-row" style="gap: var(--space-2); flex-wrap: wrap;">
+                  <button type="button" class="btn btn-primary" id="sync-now">立即同步</button>
+                  <button type="button" class="btn btn-ghost" id="clear-pending">清除本機紀錄</button>
+                </div>`
               : `<p class="empty-state">目前沒有待同步的輸入</p>`
           }
         </glass-card>
@@ -107,13 +115,51 @@ export class SettingsView extends HTMLElement {
     this.querySelector("#pat-save").addEventListener("click", () => {
       const val = this.querySelector("#pat-input").value.trim();
       state.setPat(val);
-      showToast("已儲存在本機瀏覽器(M3 完成前不會被使用)");
+      showToast("已儲存在本機瀏覽器");
+      this.renderContent();
+    });
+
+    this.querySelector("#pat-test").addEventListener("click", async () => {
+      const val = this.querySelector("#pat-input").value.trim();
+      if (!val) {
+        showToast("請先輸入 token");
+        return;
+      }
+      state.setPat(val);
+      try {
+        await testConnection();
+        showToast("✓ 連線成功");
+      } catch (err) {
+        showToast(`✗ ${err.message}`);
+      }
     });
 
     const clearBtn = this.querySelector("#clear-pending");
     if (clearBtn) {
       clearBtn.addEventListener("click", () => {
         state.clearPendingInboxLines();
+        this.renderContent();
+      });
+    }
+
+    const syncBtn = this.querySelector("#sync-now");
+    if (syncBtn) {
+      syncBtn.addEventListener("click", async () => {
+        if (state.getDemoMode()) {
+          showToast("Demo 模式不會同步到 repo");
+          return;
+        }
+        if (!state.getPat()) {
+          showToast("請先設定並儲存 PAT");
+          return;
+        }
+        try {
+          const { inbox, checklist } = await syncAll({ silent: false });
+          const total = inbox.synced + checklist.synced;
+          showToast(total ? `已同步 ${total} 項到 repo` : "沒有待同步的項目");
+        } catch (err) {
+          showToast(`同步失敗:${err.message}`);
+        }
         this.renderContent();
       });
     }
